@@ -6,14 +6,15 @@ package main
 
 import (
 	"fmt"
-	prob "github.com/avertocle/contests/aoc/2024/day20"
-	"github.com/avertocle/contests/io/clr"
-	"github.com/avertocle/contests/io/errz"
-	"github.com/avertocle/contests/io/iutils"
 	"os"
 	"path"
 	"strings"
 	"time"
+
+	prob "github.com/avertocle/contests/aoc/2025/day01"
+	"github.com/avertocle/contests/io/clr"
+	"github.com/avertocle/contests/io/errz"
+	"github.com/avertocle/contests/io/iutils"
 )
 
 func main() {
