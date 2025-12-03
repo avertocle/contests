@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	prob "github.com/avertocle/contests/aoc/2025/day02"
+	prob "github.com/avertocle/contests/aoc/2025/day03"
 	"github.com/avertocle/contests/io/clr"
 	"github.com/avertocle/contests/io/errz"
 	"github.com/avertocle/contests/io/iutils"
