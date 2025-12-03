@@ -40,6 +40,10 @@ func SolveP2() string {
 	return fmt.Sprintf("%v", ans)
 }
 
+/***** P1 Functions *****/
+
+/***** P2 Functions *****/
+
 func reduceDistance(val int) (int, int) {
 	sign := val / numz.Abs(val)
 	mult := numz.Abs(val) / 100
@@ -47,15 +51,11 @@ func reduceDistance(val int) (int, int) {
 	return val, mult
 }
 
+/***** Common Functions *****/
+
 func fitToRange(val int) int {
 	return (val + 100) % 100
 }
-
-/***** P1 Functions *****/
-
-/***** P2 Functions *****/
-
-/***** Common Functions *****/
 
 /***** Input *****/
 

@@ -33,6 +33,10 @@ func SolveP2() string {
 
 /***** P1 Functions *****/
 
+/***** P2 Functions *****/
+
+/***** Common Functions *****/
+
 func findMaxPossibleJoltage(arr []int, batCount int) int64 {
 	batArr := make([]int, batCount)
 	startIdx, endIdx := 0, len(arr)-batCount
@@ -57,10 +61,6 @@ func findHighestNumberAfterIndex(arr []int, startIdx int, endIdx int) (int, int)
 	}
 	return highest, highestIdx
 }
-
-/***** P2 Functions *****/
-
-/***** Common Functions *****/
 
 /***** Input *****/
 
