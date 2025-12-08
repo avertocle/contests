@@ -2,6 +2,8 @@ package bytez
 
 import (
 	"strings"
+
+	"github.com/avertocle/contests/io/stringz"
 )
 
 func Init1D(size int, b byte) []byte {
@@ -120,4 +122,12 @@ func CountIf1D(arr []byte, f func(byte) bool) int {
 		}
 	}
 	return count
+}
+
+func AtoI(arr []byte) int {
+	return stringz.AtoI(strings.TrimSpace(string(arr)), 0)
+}
+
+func AtoI64(arr []byte) int64 {
+	return stringz.AtoI64(strings.TrimSpace(string(arr)), 0)
 }

@@ -2,6 +2,7 @@ package arrz
 
 import (
 	"fmt"
+
 	"github.com/avertocle/contests/io/clr"
 	"github.com/avertocle/contests/io/tpz"
 )
@@ -54,6 +55,17 @@ func Unique2D[T tpz.Primitive](arr [][]T) [][]T {
 		if !lookup[idx] {
 			lookup[idx] = true
 			ans = append(ans, arr[i])
+		}
+	}
+	return ans
+}
+
+func Transpose2D[T any](arr [][]T) [][]T {
+	ans := make([][]T, len(arr[0]))
+	for i := 0; i < len(arr[0]); i++ {
+		ans[i] = make([]T, len(arr))
+		for j := 0; j < len(arr); j++ {
+			ans[i][j] = arr[j][i]
 		}
 	}
 	return ans

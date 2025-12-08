@@ -2,8 +2,9 @@ package bytez
 
 import (
 	"fmt"
-	"github.com/avertocle/contests/io/numz"
 	"math"
+
+	"github.com/avertocle/contests/io/numz"
 )
 
 func Init2D(rows, cols int, b byte) [][]byte {
@@ -111,17 +112,6 @@ func Extract2D(arr [][]byte, boundTL, boundBR []int, padVal byte) [][]byte {
 	return ans
 }
 
-func Transpose2D(arr [][]byte) [][]byte {
-	xlen, ylen := len(arr[0]), len(arr)
-	ans := Init2D(xlen, ylen, 0)
-	for x := 0; x < xlen; x++ {
-		for y := 0; y < ylen; y++ {
-			ans[x][y] = arr[y][x]
-		}
-	}
-	return ans
-}
-
 func RotateClockwise2D(arr [][]byte) [][]byte {
 	if len(arr) == 0 || len(arr[0]) == 0 {
 		return arr
@@ -178,7 +168,6 @@ func IsValidIndex(arr [][]byte, i, j int) bool {
 }
 
 func PPrint2D(arr [][]byte) {
-	fmt.Println()
 	for _, row := range arr {
 		for _, c := range row {
 			fmt.Printf("%v", string(c))
