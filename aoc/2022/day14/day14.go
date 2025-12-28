@@ -2,13 +2,15 @@ package day14
 
 import (
 	"fmt"
+	"math"
+	"strings"
+
+	"github.com/avertocle/contests/io/arrz"
 	"github.com/avertocle/contests/io/bytez"
 	"github.com/avertocle/contests/io/errz"
 	"github.com/avertocle/contests/io/iutils"
 	"github.com/avertocle/contests/io/numz"
 	"github.com/avertocle/contests/io/stringz"
-	"math"
-	"strings"
 )
 
 var gInput [][][]int
@@ -155,5 +157,5 @@ func printGrid(grid [][]byte) {
 	viewTL := []int{gBoundTL[0] - 20, gBoundTL[1]}
 	viewBR := []int{gBoundBR[0] + 20, gBoundBR[1] + 3}
 	fmt.Println("deprecated")
-	bytez.PPrint2D(bytez.Transpose2D(bytez.Extract2D(grid, viewTL, viewBR, '.')))
+	bytez.PPrint2D(arrz.Transpose2D(bytez.Extract2D(grid, viewTL, viewBR, '.')))
 }

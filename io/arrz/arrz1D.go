@@ -2,6 +2,7 @@ package arrz
 
 import (
 	"fmt"
+
 	"github.com/avertocle/contests/io/clr"
 	"github.com/avertocle/contests/io/mapz"
 	"github.com/avertocle/contests/io/tpz"
@@ -45,7 +46,10 @@ func ToStr1D[T any](arr []T, sep string) string {
 	for _, cell := range arr {
 		ans += fmt.Sprintf("%v%v", sep, cell)
 	}
-	return ans[1:]
+	if len(sep) > 0 {
+		ans = ans[1:]
+	}
+	return ans
 }
 
 func Join1D[T tpz.PrimitivePlus](arrays ...[]T) []T {

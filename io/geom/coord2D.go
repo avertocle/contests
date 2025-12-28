@@ -1,60 +1,44 @@
 package geom
 
-import "fmt"
+import (
+	"fmt"
 
-// Coord2d deprecated : use Coord2D
-type Coord2d struct {
-	X int
-	Y int
+	"github.com/avertocle/contests/io/tpz"
+)
+
+type Coord2D[T tpz.Number] struct {
+	X T
+	Y T
 }
 
-func NewCoord2d(x, y int) *Coord2d {
-	return &Coord2d{X: x, Y: y}
-}
-
-func (o *Coord2d) Clone() *Coord2d {
-	return &Coord2d{
-		X: o.X,
-		Y: o.Y,
-	}
-}
-
-// todo : works only for Q4, fix this
-// make generic for [][]array, tl, br
-func (o *Coord2d) IsInside(boundTL, boundBR *Coord2d) bool {
+func (o *Coord2D[T]) IsInside(boundTL, boundBR *Coord2D[T]) bool {
 	return o.X >= boundTL.X &&
 		o.X <= boundBR.X &&
 		o.Y <= boundTL.Y &&
 		o.Y >= boundBR.Y
 }
 
-func IsValidCoord2D(x, y, rows, cols int) bool {
-	return !(x < 0 || y < 0 || x >= rows || y >= cols)
+func (o *Coord2D[T]) MoveBy(dx, dy T) *Coord2D[T] {
+	o.X += dx
+	o.Y += dy
+	return o
 }
 
-func ApplyToAdjacent(g [][]int, x, y, rows, cols int, diag bool, f func(int) int) {
-	ApplyIfValid(g, x+1, y, rows, cols, f)
-	ApplyIfValid(g, x-1, y, rows, cols, f)
-	ApplyIfValid(g, x, y+1, rows, cols, f)
-	ApplyIfValid(g, x, y-1, rows, cols, f)
-	if diag {
-		ApplyIfValid(g, x-1, y-1, rows, cols, f)
-		ApplyIfValid(g, x-1, y+1, rows, cols, f)
-		ApplyIfValid(g, x+1, y-1, rows, cols, f)
-		ApplyIfValid(g, x+1, y+1, rows, cols, f)
+func (o *Coord2D[T]) Str() string {
+	return fmt.Sprintf("%v,%v", o.X, o.Y)
+}
+
+func (o *Coord2D[T]) IsEqual(o1 *Coord2D[T]) bool {
+	return o.X == o1.X && o.Y == o1.Y
+
+}
+
+func PPrintCoord2D[T tpz.Number](coords []*Coord2D[T]) {
+	for _, c := range coords {
+		fmt.Println(c.Str())
 	}
 }
 
-func ApplyIfValid(g [][]int, x, y, rows, cols int, f func(int) int) {
-	if IsValidCoord2D(x, y, rows, cols) {
-		g[x][y] = f(g[x][y])
-	}
-}
-
-func Unique1DIntIn2DInt(arr [][]int) int {
-	m := make(map[string]bool)
-	for _, row := range arr {
-		m[fmt.Sprintf("%v", row)] = true
-	}
-	return len(m)
+func NewCoord2D[T tpz.Number](x, y T) *Coord2D[T] {
+	return &Coord2D[T]{X: x, Y: y}
 }

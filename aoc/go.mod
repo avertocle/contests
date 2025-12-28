@@ -1,6 +1,6 @@
 module github.com/avertocle/contests/aoc
 
-go 1.23
+go 1.25
 
 replace github.com/avertocle/contests/io => ../io
 
